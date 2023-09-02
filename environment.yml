@@ -1,0 +1,28 @@
+name: master_thesis_env
+channels:
+  - conda-forge
+  - defaults
+  - huggingface
+  - pytorch
+dependencies:
+  - python=3.8
+  - jupyter
+  - jupyterlab
+  - ipywidgets
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - scikit-image
+  - transformers
+  - tokenizers
+  - sentencepiece
+  - yfinance
+  - pip:
+    - torch
+    - torchtext
+    - huggingface_hub[cli]
+
+
