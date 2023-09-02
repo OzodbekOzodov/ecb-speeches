@@ -158,3 +158,32 @@ def sentiment_finbert(text, tokenizer=None, model=None):
     avg_negative = predictions[0]  # Negative sentiment class
     
     return avg_positive, avg_negative
+
+import pandas as pd
+
+def descriptive_statistics_to_latex(df):
+    # Extract year and month from 'date' column
+    df['year'] = pd.to_datetime(df['date']).dt.year
+    df['month'] = pd.to_datetime(df['date']).dt.month
+    
+    # Frequency of speeches by month for each year
+    monthly_count = df.groupby(['year', 'month']).size().unstack(fill_value=0)
+    
+    # Adding a column for yearly total
+    monthly_count['Total'] = monthly_count.sum(axis=1)
+    
+    # Rename month columns for clarity
+    month_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    monthly_count.columns = month_names + ['Total']
+    
+    # Add a row for monthly total
+    monthly_count.loc['Total', :] = monthly_count.sum(axis=0)
+    
+    # Convert the DataFrame to integer type
+    monthly_count = monthly_count.astype(int)
+    
+    # Convert to LaTeX format
+    latex_output = monthly_count.to_latex()
+
+    return latex_output
+
