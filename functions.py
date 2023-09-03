@@ -126,6 +126,7 @@ def sentiment_finbert(text, tokenizer=None, model=None):
     """
     Calculate sentiment scores for a given text using FinBERT.
 
+
     Parameters:
     text (str): The input text for sentiment analysis.
     tokenizer (BertTokenizer, optional): The FinBERT tokenizer. Defaults to None.
