@@ -20,6 +20,8 @@ dependencies:
   - tokenizers
   - sentencepiece
   - yfinance
+  - tensorflow
+  - keras
   - pip:
     - torch
     - torchtext
