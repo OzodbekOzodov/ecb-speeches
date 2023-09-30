@@ -22,6 +22,7 @@ dependencies:
   - yfinance
   - tensorflow
   - keras
+  - xgboost
   - pip:
     - torch
     - torchtext
